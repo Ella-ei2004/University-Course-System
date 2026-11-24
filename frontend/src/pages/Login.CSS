@@ -1,0 +1,833 @@
+
+/* ========================================
+   STAMFORD INTERNATIONAL UNIVERSITY
+   MODERN LOGIN DESIGN
+======================================== */
+
+.stamford-login {
+    --primary: #344e73;
+    --primary-dark: #263b59;
+    --heading: #202938;
+    --muted: #748093;
+    --border: #e2e6ec;
+    --surface: #ffffff;
+    --background: #f8f9fb;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+  
+    padding: 18px;
+    gap: 20px;
+  
+    background: var(--background);
+    color: var(--heading);
+  
+    font-family: Inter, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .stamford-login * {
+    box-sizing: border-box;
+  }
+  
+  /* ========================================
+     LEFT SIDE — CAMPUS IMAGE
+  ======================================== */
+  
+  .stamford-campus {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    min-width: 0;
+    min-height: calc(100vh - 36px);
+  
+    padding: clamp(28px, 4vw, 55px);
+  
+    background-color: #263b59;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    color: #ffffff;
+  
+    border-radius: 24px;
+  }
+  
+  /* Campus image overlay */
+  
+  .stamford-campus::before {
+    content: "";
+  
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  
+    background: linear-gradient(
+      180deg,
+      rgba(19, 29, 44, 0.65) 0%,
+      rgba(19, 29, 44, 0.05) 35%,
+      rgba(19, 29, 44, 0.45) 65%,
+      rgba(19, 29, 44, 0.96) 100%
+    );
+  
+    pointer-events: none;
+  }
+  
+  /* ========================================
+     UNIVERSITY BRAND
+  ======================================== */
+  
+  .stamford-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .stamford-brand-icon {
+    display: grid;
+    place-items: center;
+  
+    flex-shrink: 0;
+  
+    width: 52px;
+    height: 52px;
+  
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+  
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 14px;
+  
+    backdrop-filter: blur(12px);
+  }
+  
+  .stamford-brand h2 {
+    margin: 0;
+  
+    color: #ffffff;
+  
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    line-height: 1.2;
+  }
+  
+  .stamford-brand p {
+    margin: 6px 0 0;
+  
+    color: #d1dbea;
+  
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+  
+  /* ========================================
+     CAMPUS CAPTION
+  ======================================== */
+  
+  .campus-caption {
+    max-width: 580px;
+    padding-top: 70px;
+    padding-bottom: 5px;
+  }
+  
+  .campus-label {
+    display: inline-flex;
+    align-items: center;
+  
+    gap: 9px;
+    margin-bottom: 22px;
+    padding: 7px 13px;
+  
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e8f3;
+  
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+  
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+  
+    backdrop-filter: blur(10px);
+  }
+  
+  .campus-label::before {
+    content: "";
+  
+    width: 6px;
+    height: 6px;
+  
+    background: #b5d7c8;
+    border-radius: 50%;
+  }
+  
+  .campus-caption h1 {
+    margin: 0 0 20px;
+  
+    color: #ffffff;
+  
+    font-size: clamp(38px, 4.3vw, 65px);
+    font-weight: 600;
+    letter-spacing: -2.8px;
+    line-height: 1.13;
+  }
+  
+  .campus-caption > p {
+    max-width: 430px;
+    margin: 0;
+  
+    color: #d0d9e6;
+  
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.9;
+  }
+  
+  .campus-divider {
+    width: 100%;
+    height: 1px;
+    margin: 32px 0 20px;
+  
+    background: rgba(255, 255, 255, 0.18);
+  }
+  
+  .campus-footer {
+    color: #b4c1d3;
+  
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* ========================================
+     RIGHT SIDE — LOGIN AREA
+  ======================================== */
+  
+  .stamford-login-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    min-width: 0;
+    min-height: calc(100vh - 36px);
+  
+    padding: 22px clamp(25px, 4vw, 65px);
+  
+    background: transparent;
+  }
+  
+  /* ========================================
+     TOP BAR
+  ======================================== */
+  
+  .stamford-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  
+    gap: 9px;
+  
+    color: var(--muted);
+  
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  .portal-indicator {
+    width: 7px;
+    height: 7px;
+  
+    background: #528c73;
+    border-radius: 50%;
+  
+    box-shadow: 0 0 0 4px #e5eee9;
+  }
+  
+  /* ========================================
+     LOGIN FORM WRAPPER
+  ======================================== */
+  
+  .stamford-form-wrapper {
+    width: 100%;
+    max-width: 410px;
+  
+    margin: 40px auto;
+  }
+  
+  .stamford-form-heading {
+    margin-bottom: 30px;
+  }
+  
+  .stamford-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+  
+    color: var(--primary);
+  
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .stamford-form-heading h1 {
+    margin: 0 0 12px;
+  
+    color: var(--heading);
+  
+    font-size: clamp(32px, 3.2vw, 44px);
+    font-weight: 650;
+    letter-spacing: -1.9px;
+    line-height: 1.2;
+  }
+  
+  .stamford-form-heading p {
+    margin: 0;
+  
+    color: var(--muted);
+  
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  
+  /* ========================================
+     FORM FIELDS
+  ======================================== */
+  
+  .stamford-form {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 21px;
+  }
+  
+  .stamford-field {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 8px;
+  }
+  
+  .stamford-field label {
+    color: #354052;
+  
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  /* ========================================
+     INPUT WRAPPER
+  ======================================== */
+  
+  .stamford-input-wrapper {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+  
+    width: 100%;
+    height: 52px;
+  
+    background: #ffffff;
+  
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .stamford-input-wrapper:hover {
+    border-color: #b8c4d3;
+  }
+  
+  .stamford-input-wrapper:focus-within {
+    border-color: #8299b8;
+  
+    box-shadow: 0 0 0 4px rgba(52, 78, 115, 0.08);
+  }
+  
+  .stamford-input-icon {
+    position: absolute;
+    left: 15px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #8b96a7;
+  
+    pointer-events: none;
+  }
+  
+  .stamford-input-wrapper:focus-within
+  .stamford-input-icon {
+    color: var(--primary);
+  }
+  
+  .stamford-login .stamford-input-wrapper input {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+  
+    padding: 0 46px;
+  
+    background: transparent;
+    color: var(--heading);
+  
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+  
+    font-family: inherit;
+    font-size: 13px;
+  }
+  
+  .stamford-input-wrapper input::placeholder {
+    color: #98a2b1;
+    font-size: 13px;
+  }
+  
+  .stamford-login .stamford-input-wrapper input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Browser autofill */
+  
+  .stamford-login input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+    -webkit-text-fill-color: #202938;
+  }
+  
+  /* ========================================
+     PASSWORD VISIBILITY
+  ======================================== */
+  
+  .stamford-login .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+  
+    transform: translateY(-50%);
+  
+    display: grid;
+    place-items: center;
+  
+    width: 34px;
+    height: 34px;
+    padding: 0;
+  
+    background: transparent;
+    color: #8b96a7;
+  
+    border: none;
+    border-radius: 7px;
+  
+    cursor: pointer;
+  
+    transition:
+      background 0.18s ease,
+      color 0.18s ease;
+  }
+  
+  .stamford-login .password-toggle:hover {
+    background: #edf1f7;
+    color: var(--primary);
+  }
+  
+  /* ========================================
+     SIGN IN BUTTON
+  ======================================== */
+  
+  .stamford-login .stamford-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 12px;
+  
+    width: 100%;
+    min-height: 52px;
+    margin-top: 5px;
+    padding: 14px 20px;
+  
+    background: var(--primary-dark);
+    color: #ffffff;
+  
+    border: 1px solid transparent;
+    border-radius: 10px;
+  
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  
+    cursor: pointer;
+  
+    box-shadow: 0 3px 8px rgba(38, 59, 89, 0.12);
+  
+    transition:
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .stamford-login .stamford-signin:hover:not(:disabled) {
+    background: #192b44;
+  
+    box-shadow: 0 5px 14px rgba(38, 59, 89, 0.2);
+  }
+  
+  .stamford-signin:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+  
+  .stamford-login button:focus-visible {
+    outline: 3px solid #9db1ce;
+    outline-offset: 3px;
+  }
+  
+  /* ========================================
+     LOADING SPINNER
+  ======================================== */
+  
+  .signin-spinner {
+    display: inline-block;
+  
+    width: 17px;
+    height: 17px;
+  
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+  
+    animation: stamford-spin 0.75s linear infinite;
+  }
+  
+  @keyframes stamford-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* ========================================
+     ERROR MESSAGE
+  ======================================== */
+  
+  .stamford-login-error {
+    margin: 0;
+    padding: 13px 15px;
+  
+    background: #fff1f1;
+    color: #b54747;
+  
+    border: 1px solid #efd0d0;
+    border-radius: 9px;
+  
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  
+  /* ========================================
+     PORTAL ACCESS
+  ======================================== */
+  
+  .stamford-role-section {
+    margin-top: 29px;
+  }
+  
+  .stamford-separator {
+    display: flex;
+    align-items: center;
+  
+    gap: 14px;
+  }
+  
+  .stamford-separator span {
+    flex: 1;
+    height: 1px;
+  
+    background: var(--border);
+  }
+  
+  .stamford-separator p {
+    margin: 0;
+  
+    color: var(--muted);
+  
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  /* ========================================
+     ADMIN / ADVISOR / STUDENT
+  ======================================== */
+  
+  .stamford-roles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+    gap: 11px;
+    margin-top: 19px;
+  }
+  
+  .stamford-role {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 10px;
+    min-height: 90px;
+    padding: 15px 8px;
+  
+    background: #ffffff;
+    color: #566174;
+  
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .stamford-role svg {
+    width: 23px;
+    height: 23px;
+  
+    color: var(--primary);
+    stroke-width: 1.6;
+  }
+  
+  /* ========================================
+     HELP SECTION
+  ======================================== */
+  
+  .stamford-help {
+    margin: 25px 0 0;
+  
+    color: var(--muted);
+  
+    font-size: 11px;
+    line-height: 1.8;
+    text-align: center;
+  }
+  
+  .stamford-help a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .stamford-help a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ========================================
+     FOOTER
+  ======================================== */
+  
+  .stamford-login-footer {
+    padding: 10px 0;
+  
+    color: #8893a4;
+  
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: center;
+    letter-spacing: 0.2px;
+  }
+  
+  /* ========================================
+     TABLET RESPONSIVE DESIGN
+  ======================================== */
+  
+  @media (max-width: 1100px) {
+    .stamford-login {
+      padding: 14px;
+      gap: 14px;
+    }
+  
+    .stamford-campus {
+      min-height: calc(100vh - 28px);
+      padding: 32px;
+      border-radius: 20px;
+    }
+  
+    .stamford-login-side {
+      min-height: calc(100vh - 28px);
+      padding: 20px 30px;
+    }
+  
+    .campus-caption h1 {
+      font-size: 45px;
+      letter-spacing: -1.8px;
+    }
+  
+    .stamford-brand h2 {
+      font-size: 21px;
+    }
+  
+    .stamford-brand p {
+      font-size: 8px;
+      letter-spacing: 1.5px;
+    }
+  }
+  
+  /* ========================================
+     MOBILE RESPONSIVE DESIGN
+  ======================================== */
+  
+  @media (max-width: 800px) {
+    .stamford-login {
+      grid-template-columns: 1fr;
+  
+      gap: 0;
+      padding: 12px;
+    }
+  
+    .stamford-campus {
+      min-height: 340px;
+  
+      padding: 25px;
+  
+      background-position: center 45%;
+  
+      border-radius: 18px;
+    }
+  
+    .stamford-brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+    }
+  
+    .campus-caption {
+      padding-top: 40px;
+      padding-bottom: 0;
+    }
+  
+    .campus-caption h1 {
+      max-width: 500px;
+      margin-bottom: 12px;
+  
+      font-size: 36px;
+      letter-spacing: -1.5px;
+    }
+  
+    .campus-caption h1 br {
+      display: none;
+    }
+  
+    .campus-caption > p {
+      font-size: 12px;
+    }
+  
+    .campus-label,
+    .campus-divider,
+    .campus-footer {
+      display: none;
+    }
+  
+    .stamford-login-side {
+      min-height: auto;
+      padding: 24px 20px 10px;
+    }
+  
+    .stamford-topbar {
+      justify-content: center;
+    }
+  
+    .stamford-form-wrapper {
+      max-width: 440px;
+      margin: 35px auto;
+    }
+  
+    .stamford-form-heading h1 {
+      font-size: 35px;
+    }
+  
+    .stamford-login-footer {
+      padding: 15px 0;
+    }
+  }
+  
+  /* ========================================
+     SMALL MOBILE DEVICES
+  ======================================== */
+  
+  @media (max-width: 400px) {
+    .stamford-login {
+      padding: 8px;
+    }
+  
+    .stamford-campus {
+      min-height: 290px;
+      padding: 20px;
+      border-radius: 15px;
+    }
+  
+    .stamford-brand h2 {
+      font-size: 19px;
+      letter-spacing: 1.5px;
+    }
+  
+    .stamford-brand p {
+      font-size: 7px;
+      letter-spacing: 1px;
+    }
+  
+    .campus-caption h1 {
+      font-size: 30px;
+    }
+  
+    .stamford-login-side {
+      padding: 22px 15px 10px;
+    }
+  
+    .stamford-form-heading h1 {
+      font-size: 31px;
+    }
+  
+    .stamford-roles {
+      gap: 7px;
+    }
+  
+    .stamford-role {
+      min-height: 80px;
+      font-size: 10px;
+    }
+  }
+  
+  /* ========================================
+     ACCESSIBILITY
+  ======================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .stamford-login *,
+    .stamford-login *::before,
+    .stamford-login *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+  
